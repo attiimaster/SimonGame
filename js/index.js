@@ -136,4 +136,3 @@ document.getElementById("toggleStrict").addEventListener("click", function() {
     document.getElementById("toggleStrict").setAttribute("style", "background: silver")
   }
 });
-
