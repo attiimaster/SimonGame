@@ -1,4 +1,4 @@
 # SimonGame
 
-https://codepen.io/AttiiMasteR/full/ddGVxQ
+https://raphaelmayer.github.io/simon-game
 
