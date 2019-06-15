@@ -92,7 +92,7 @@ function animateSequence() {
 function animateButton(id) {
   const el = document.getElementById(id);
   el.setAttribute("style", "background: white");
-  playSound(`https://s3.amazonaws.com/freecodecamp/simonSound${id + 1}.mp3`);  // files are named from 1, 2, 3, 4
+  playSound(`https://s3.amazonaws.com/freecodecamp/simonSound${id + 1}.mp3`);  // sound files are named 1, 2, 3, 4
   setTimeout(() => el.setAttribute("style", `background: ${btnColors[id]}`), 400);
 }
 
