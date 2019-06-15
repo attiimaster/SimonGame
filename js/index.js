@@ -55,13 +55,13 @@ function nextTurn() {
   setTimeout(() => counter.innerHTML = sequence.length, 1000)
 };
 
-function checkInput(seq, input) {
-  if (seq[input.length - 1] !== input[input.length - 1]) {  // if wrong
+function checkInput() {
+  if (sequence[input.length - 1] !== input[input.length - 1]) {  // if wrong
     errorAnimation();
     
     // check, if strict mode is enabled => end game on first error
     if (isStrict) {
-      alert("You made it to round " + (seq.length) + ", nice!");
+      alert("You made it to round " + (sequence.length) + ", nice!");
       reset();
     } else {
       input = [];
@@ -72,7 +72,7 @@ function checkInput(seq, input) {
   } else if (input.length > 20) {
     alert("You WON!");
 
-  } else if (input.length === seq.length) {
+  } else if (input.length === sequence.length) {
     nextTurn();
   }
 };
@@ -80,7 +80,7 @@ function checkInput(seq, input) {
 // animations
 function animateSequence() {
   let i = 0;
-  let int = setInterval(function() {
+  let int = setInterval(() => {
     if(i+1 === sequence.length) {
       clearInterval(int);
     }
@@ -103,5 +103,5 @@ function errorAnimation() {
 }
 
 function playSound(soundfile) {
-  document.getElementById("dummy").innerHTML= "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\"loop=\"false\" />";
+  document.getElementById("dummy").innerHTML = `<embed src="${soundfile}" hidden="true" autostart="true" loop="false" />`;
 }
