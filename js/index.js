@@ -7,13 +7,14 @@ let input = [];       // sequence of player inputs
 let isStrict = false;
 
 //button config
-document.querySelectorAll(".pad").forEach(pad => pad.addEventListener("click", inputHandler));
+document.querySelectorAll(".pad").forEach(pad => pad.addEventListener("click", mainButtonHandler));
 document.getElementById("start").addEventListener("click", setup);
-document.getElementById("toggleStrict").addEventListener("click", toggleStrict);
+document.getElementById("toggleStrict").addEventListener("click", toggleStrictMode);
 
 
 function reset() {
-  // necessary, because we want to be able to reset, without starting a new game (eg. when toggling strict mode)
+  // necessary, because we want to be able to reset, 
+  // without starting a new game (eg. when toggling strict mode)
   sequence = [];
   input = [];
 }
@@ -24,14 +25,14 @@ function setup() {
 }
 
 // button handlers
-function inputHandler(e) {
+function mainButtonHandler(e) {
   const id = Number(e.target.attributes.id.value);
   input.push(id);
   animateButton(id);
-  checkInput(sequence, input);
+  checkPlayerInput(); 
 }
 
-function toggleStrict() {
+function toggleStrictMode() {
   const el = document.getElementById("toggleStrict");
   reset();
   
@@ -51,11 +52,11 @@ function nextTurn() {
   sequence.push(x);
 
   animateSequence();
-  input = [];
   setTimeout(() => counter.innerHTML = sequence.length, 1000)
+  input = [];
 };
 
-function checkInput() {
+function checkPlayerInput() {
   if (sequence[input.length - 1] !== input[input.length - 1]) {  // if wrong
     errorAnimation();
     
